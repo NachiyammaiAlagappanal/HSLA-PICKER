@@ -5,11 +5,12 @@ import Input from './Input';
 const LightnessCount = 5;
 const twenty = 10;
 
-const Hue = (hue, saturation) => range(0, LightnessCount).map((value) =>
-	`hsla(${ hue }, ${ saturation }%, ${ value * twenty }%, 1)`);
+const color = ({ hue, saturation, alpha }) => range(0, LightnessCount)
+	.map((value) =>
+		`hsla(${ hue }, ${ saturation }%, ${ value * twenty }%, ${ alpha })`);
 
 const Lightness = (context) => {
-	const { state: { hue, saturation, lightness }, actions } = context;
+	const { state, actions } = context;
 
 	return <div className="display">
 		<label className="label">Lightness</label>
@@ -17,12 +18,12 @@ const Lightness = (context) => {
 			type="range"
 			min="1"
 			max="100"
-			value={ lightness }
+			value={ state.lightness }
 			onChange={ (evt) => actions.updateLightness(evt.target.value) }
 			className="slider"
-			style={ { backgroundImage: `linear-gradient(to right, ${ Hue(saturation, hue) }` } }
+			style={ { backgroundImage: `linear-gradient(to right, ${ color(state) }` } }
 		/>
-		<Input { ...{ ...context, data: { data: lightness,
+		<Input { ...{ ...context, data: { data: state.lightness,
 			function: 'updateLightness' }} }
 		/>
 	</div>;
