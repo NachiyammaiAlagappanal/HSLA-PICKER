@@ -6,10 +6,14 @@ const updateHue = (context) => ({
 const updateSaturation = (context) => ({
 	saturation: context.data,
 });
+const updateLightness = (context) => ({
+	lightness: context.data,
+});
 
 const actions = {
 	updateHue,
 	updateSaturation,
+	updateLightness,
 
 };
 

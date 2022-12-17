@@ -2,6 +2,7 @@
 import { React } from 'react';
 import './App.scss';
 import HueSlider from './components/HueSlider';
+import Lightness from './components/Lightness';
 import Saturation from './components/Saturation';
 
 const App = (context) => {
@@ -9,6 +10,7 @@ const App = (context) => {
 	return <div className="App">
 		<HueSlider { ...context }/>
 		<Saturation { ...context }/>
+		<Lightness { ...context }/>
 	</div>;
 };
 
