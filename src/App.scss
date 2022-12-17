@@ -6,7 +6,7 @@
 	}
 }
 
-.hue {
+.display {
 	display: flex;
 	flex-direction: row;
 	gap: 30px;
@@ -27,4 +27,7 @@
   cursor: pointer;
 	border: 2px solid black;
 	border-radius: 50%;
+}
+.label {
+	width: 8em;
 }

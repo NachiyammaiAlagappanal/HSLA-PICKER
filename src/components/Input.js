@@ -1,12 +1,12 @@
 import { React } from 'react';
 
 const Input = (context) => {
-	const { actions, state: { hue }} = context;
+	const { actions, data } = context;
 
 	return (
 		<input
-			value={ hue }
-			onChange={ (evt) => actions.updateHue(evt.target.value) }
+			value={ data.data }
+			onChange={ (evt) => actions[data.function](evt.target.value) }
 		/>);
 };
 

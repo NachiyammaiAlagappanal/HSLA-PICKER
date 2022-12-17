@@ -5,14 +5,14 @@ import Input from '../components/Input';
 const hueCount = 37;
 const ten = 10;
 
-const Hue = () => range(0, hueCount).map((value) =>
-	`hsla(${ value * ten }, 100%, 50%, 1)`);
+const Hue = (saturation) => range(0, hueCount).map((value) =>
+	`hsla(${ value * ten }, ${ saturation }%, 50%, 1)`);
 
 const HueSlider = (context) => {
-	const { state: { hue }} = context;
+	const { state: { hue, saturation }} = context;
 
-	return <div className="hue">
-		<label>Hue</label>
+	return <div className="display">
+		<label className="label">Hue</label>
 		<input
 			type="range"
 			min="1"
@@ -20,9 +20,11 @@ const HueSlider = (context) => {
 			value={ hue }
 			onChange={ (evt) => context.actions.updateHue(evt.target.value) }
 			className="slider"
-			style={ { backgroundImage: `linear-gradient(to right, ${ Hue() }` } }
+			style={ { backgroundImage: `linear-gradient(to right, ${ Hue(saturation) }` } }
 		/>
-		<Input { ...context }/>
+		<Input { ...{ ...context, data: { data: hue,
+			function: 'updateHue' }} }
+		/>
 	</div>;
 };
 
