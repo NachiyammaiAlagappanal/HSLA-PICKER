@@ -1,5 +1,5 @@
 .App {
-	text-align: center;
+	display: inline-block;
 
 	button {
 		font-weight: bold;
@@ -30,4 +30,8 @@
 }
 .label {
 	width: 8em;
+}
+.tile {
+	width: 100px;
+	height: 100px;
 }
