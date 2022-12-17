@@ -5,3 +5,26 @@
 		font-weight: bold;
 	}
 }
+
+.hue {
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	justify-content: center;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 30%;
+  height: 20px;
+	border-radius: 20px;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+	border: 2px solid black;
+	border-radius: 50%;
+}
