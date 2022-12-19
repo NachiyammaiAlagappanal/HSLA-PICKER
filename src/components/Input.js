@@ -1,12 +1,12 @@
 import { React } from 'react';
 
 const Input = (context) => {
-	const { actions, data } = context;
+	const { actions, state, data, data: { label }} = context;
 
 	return (
 		<input
 			className="input"
-			value={ data.data }
+			value={ state[label] }
 			onChange={ (evt) => actions[data.function](evt.target.value) }
 		/>);
 };

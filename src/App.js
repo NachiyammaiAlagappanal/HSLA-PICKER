@@ -1,13 +1,12 @@
-/* eslint-disable no-console */
 import { React } from 'react';
 import './App.scss';
 import ColorTile from './components/ColorTile';
-import Sliders from './components/Sliders';
+import PickerFrame from './components/PickerFrame';
 
 const App = (context) =>
 	<div className="App">
 		<ColorTile { ...context }/>
-		<Sliders { ...context }/>
+		<PickerFrame { ...context }/>
 	</div>;
 
 export default App;

@@ -1,8 +1,6 @@
-/* eslint-disable object-shorthand */
-/* eslint-disable no-console */
-
 const ColorValue = {
-	getHue: ({ state: { hue }, value, data }) => (data === 'hue' ? value : hue),
+	getHue: ({ state: { hue }, value, data }) =>
+		(data === 'hue' ? value : hue),
 
 	getSaturation: ({ state: { saturation }, value, data }) =>
 		(data === 'saturation' ? value : saturation),

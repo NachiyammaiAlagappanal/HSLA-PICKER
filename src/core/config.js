@@ -7,28 +7,28 @@ const config = {
 	},
 	attributes: [
 		{
-			mix: 1,
+			min: 1,
 			max: 360,
 			label: 'hue',
 			function: 'updateHue',
 			multiplier: 1,
 		},
 		{
-			mix: 1,
+			min: 1,
 			max: 100,
 			label: 'saturation',
 			function: 'updateSaturation',
 			multiplier: 1,
 		},
 		{
-			mix: 1,
+			min: 0,
 			max: 100,
 			label: 'lightness',
 			function: 'updateLightness',
 			multiplier: 1,
 		},
 		{
-			mix: 0,
+			min: 0,
 			max: 100,
 			label: 'alpha',
 			function: 'updateAlpha',
