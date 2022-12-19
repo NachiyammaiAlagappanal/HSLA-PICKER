@@ -1,12 +1,7 @@
 /* eslint-disable no-magic-numbers */
-import { range } from '@laufire/utils/collection';
 import { React } from 'react';
 import Input from './Input';
-
-const alphaCount = 10;
-const color = ({ hue, saturation, lightness }) => range(0, alphaCount)
-	.map((value) =>
-		`hsla(${ hue }, ${ saturation }%, ${ lightness }%, ${ value / alphaCount })`);
+import Color from './Color';
 
 const Alpha = (context) => {
 	const { state, actions } = context;
@@ -20,7 +15,8 @@ const Alpha = (context) => {
 			value={ state.alpha * 100 }
 			onChange={ (evt) => actions.updateAlpha(evt.target.value) }
 			className="slider"
-			style={ { backgroundImage: `linear-gradient(to right, ${ color(state) }` } }
+			style={ { backgroundImage: `linear-gradient(to right,
+				${ Color({ ...context, data: 'alpha' }) }` } }
 		/>
 		<Input { ...{ ...context, data: { data: state.alpha,
 			function: 'updateAlpha' }} }
