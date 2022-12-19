@@ -1,13 +1,13 @@
 import { React } from 'react';
-import Alpha from './Alpha';
-import Hue from './Hue';
-import Lightness from './Lightness';
-import Saturation from './Saturation';
+import Slider from './Slider';
 
-const Components = [Hue, Saturation, Lightness, Alpha];
+const Sliders = (context) => {
+	const { config: { attributes }} = context;
 
-const Sliders = (context) => <div className="colorPicker">
-	{Components.map((Component, index) =>
-		<Component key={ index }{ ...context }/>)}</div>;
+	return <div className="colorPicker">
+		{attributes.map((attribute, index) =>
+			<Slider key={ index } { ...{ ...context, data: attribute } }/>)}
+	</div>;
+};
 
 export default Sliders;

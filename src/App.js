@@ -2,7 +2,7 @@
 import { React } from 'react';
 import './App.scss';
 import ColorTile from './components/ColorTile';
-import Sliders from './components/Sliders.js';
+import Sliders from './components/Sliders';
 
 const App = (context) =>
 	<div className="App">
