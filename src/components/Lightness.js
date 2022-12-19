@@ -2,12 +2,11 @@ import { range } from '@laufire/utils/collection';
 import { React } from 'react';
 import Input from './Input';
 
-const LightnessCount = 5;
-const twenty = 10;
+const LightnessCount = 100;
 
-const color = ({ hue, saturation, alpha }) => range(0, LightnessCount)
+const color = ({ state: { hue, saturation, alpha }}) => range(0, LightnessCount)
 	.map((value) =>
-		`hsla(${ hue }, ${ saturation }%, ${ value * twenty }%, ${ alpha })`);
+		`hsla(${ hue }, ${ saturation }%, ${ value }%, ${ alpha })`);
 
 const Lightness = (context) => {
 	const { state, actions } = context;
@@ -21,7 +20,7 @@ const Lightness = (context) => {
 			value={ state.lightness }
 			onChange={ (evt) => actions.updateLightness(evt.target.value) }
 			className="slider"
-			style={ { backgroundImage: `linear-gradient(to right, ${ color(state) }` } }
+			style={ { backgroundImage: `linear-gradient(to right, ${ color(context) }` } }
 		/>
 		<Input { ...{ ...context, data: { data: state.lightness,
 			function: 'updateLightness' }} }

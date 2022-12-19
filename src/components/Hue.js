@@ -1,15 +1,14 @@
 import { range } from '@laufire/utils/collection';
 import { React } from 'react';
-import Input from '../components/Input';
+import Input from './Input';
 
-const hueCount = 37;
-const ten = 10;
+const hueCount = 360;
 
-const color = ({ saturation, lightness, alpha }) =>
+const color = ({ state: { saturation, lightness, alpha }}) =>
 	range(0, hueCount).map((value) =>
-		`hsla(${ value * ten }, ${ saturation }%, ${ lightness }%, ${ alpha })`);
+		`hsla(${ value }, ${ saturation }%, ${ lightness }%, ${ alpha })`);
 
-const HueSlider = (context) => {
+const Hue = (context) => {
 	const { state, actions } = context;
 
 	return <div className="display">
@@ -21,7 +20,7 @@ const HueSlider = (context) => {
 			value={ state.hue }
 			onChange={ (evt) => actions.updateHue(evt.target.value) }
 			className="slider"
-			style={ { backgroundImage: `linear-gradient(to right, ${ color(state) }` } }
+			style={ { backgroundImage: `linear-gradient(to right, ${ color(context) }` } }
 		/>
 		<Input { ...{ ...context, data: { data: state.hue,
 			function: 'updateHue' }} }
@@ -29,4 +28,4 @@ const HueSlider = (context) => {
 	</div>;
 };
 
-export default HueSlider;
+export default Hue;

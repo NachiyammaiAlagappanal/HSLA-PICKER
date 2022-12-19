@@ -2,19 +2,20 @@
 import { React } from 'react';
 import './App.scss';
 import Alpha from './components/Alpha';
-import HueSlider from './components/HueSlider';
+import Hue from './components/Hue';
 import Lightness from './components/Lightness';
 import Saturation from './components/Saturation';
-import ColorTiles from './components/colorTiles';
+import ColorTile from './components/ColorTile';
 
 const App = (context) => {
 	console.log(context);
 	return <div className="App">
-		<ColorTiles { ...context }/>
-		<HueSlider { ...context }/>
-		<Saturation { ...context }/>
-		<Lightness { ...context }/>
-		<Alpha { ...context }/>
+		<ColorTile { ...context }/>
+		<div className="colorPicker">
+			<Hue { ...context }/>
+			<Saturation { ...context }/>
+			<Lightness { ...context }/>
+			<Alpha { ...context }/></div>
 	</div>;
 };
 

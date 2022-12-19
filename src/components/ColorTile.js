@@ -1,6 +1,6 @@
 import { React } from 'react';
 
-const ColorTiles = (context) => {
+const ColorTile = (context) => {
 	const { state: { hue, saturation, lightness, alpha }} = context;
 
 	return (
@@ -11,4 +11,4 @@ const ColorTiles = (context) => {
 		/>);
 };
 
-export default ColorTiles;
+export default ColorTile;

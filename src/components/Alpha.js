@@ -1,10 +1,12 @@
 /* eslint-disable no-magic-numbers */
+import { range } from '@laufire/utils/collection';
 import { React } from 'react';
 import Input from './Input';
 
-const color = ({ hue, saturation, lightness }) => [0, 0.2, 0.4, 0.6, 0.8, 1]
+const alphaCount = 10;
+const color = ({ hue, saturation, lightness }) => range(0, alphaCount)
 	.map((value) =>
-		`hsla(${ hue }, ${ saturation }%, ${ lightness }%, ${ value })`);
+		`hsla(${ hue }, ${ saturation }%, ${ lightness }%, ${ value / alphaCount })`);
 
 const Alpha = (context) => {
 	const { state, actions } = context;

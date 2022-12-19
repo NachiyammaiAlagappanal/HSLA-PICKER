@@ -5,6 +5,7 @@ const Input = (context) => {
 
 	return (
 		<input
+			className="input"
 			value={ data.data }
 			onChange={ (evt) => actions[data.function](evt.target.value) }
 		/>);
