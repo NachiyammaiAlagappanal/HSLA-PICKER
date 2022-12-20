@@ -8,8 +8,8 @@ const ColorValue = {
 	getLightness: ({ state: { lightness }, value, data }) =>
 		(data === 'lightness' ? value : lightness),
 
-	getAlpha: ({ state: { alpha }, value, data, config: { count }}) =>
-		(data === 'alpha' ? value / count[data] : alpha),
+	getAlpha: ({ state: { alpha }, value, data }) =>
+		(data === 'alpha' ? value : alpha),
 };
 
 export default ColorValue;
